@@ -6,7 +6,7 @@ body {
 
 .logo {
     position: relative;
-    top: -10%;
+    top: -2%;
 }
 
 #container {
@@ -22,7 +22,7 @@ body {
     padding: 1%;
     box-shadow: 0 0 10px 2px;
     position: relative;
-    top: -10%;
+    top: -5%;
 }
 
 .btn {
@@ -51,17 +51,19 @@ body {
 
 /* Instructions Section */
 #instructions {  
-     display: none; 
-}
+    display: none; 
+} 
 
 #instructions h2 {
     font-size: 30px;
     border-bottom: 2px solid black; 
     padding-bottom: 15px; 
+    font-weight: lighter;
 }
 
 #instructions h4 {
     font-size: 20px; 
+    font-weight: lighter;
 }
 
 #continue {
@@ -73,8 +75,8 @@ body {
 
 /* Quiz Section */
 
-#quiz {
-    display: block;
+#quiz { 
+    display: none;
 }
 
 #questionText {
@@ -103,6 +105,61 @@ body {
     /* display: none;  */
 }
 
+/* Winners Section */
+#congrats { 
+    display: none;
+}
+
+#congrats h2, #congrats h4{
+    font-weight: lighter;
+}
+
+.restart {
+    font-size: 1.5rem;
+    padding: 20px 40px;
+    width: 30%;
+    font-family: 'Special Elite',cursive;
+}
+
+.feedback {
+    font-size: 1.5rem;
+    padding: 20px;
+    width: 40%;
+    font-family: 'Special Elite',cursive;
+}
+
+/* loosers Section */
+
+#tryAgain { 
+    display: none;
+}
+
+#tryAgain h2, #tryAgain h4{
+    font-weight: lighter;
+}
+
+/* Feedback Section */
+#form {
+    padding: 20px;
+}
+
+#labelMessage {
+    font-size: larger;
+}
+
+textarea {
+    border: 2px solid black;
+    margin-top: 10px;
+    font-family: 'Special Elite',cursive;
+    padding: 10px;
+}
+
+#submit {
+    font-size: 1.5rem;
+    padding: 20px 40px;
+    width: 50%;
+    font-family: 'Special Elite',cursive;
+}
 
 /* score area */
 #score {

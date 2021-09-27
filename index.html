@@ -36,9 +36,9 @@
             <button id="continue" class="btn">Continue</button>
         </div>
     <!-- Quiz Section -->
-         <div id="quiz">
+        <div id="quiz">
             <h2 id="questionText"> How many brains does an octopus have? </h2>
-    <!-- Answer Choices-->
+    <!-- Answer Choices -->
             <div id="optionList">
                 <h4 class="choice_que btn" id="option1">1</h4>
                 <h4 class="choice_que btn" id="option2">6</h4>
@@ -46,8 +46,37 @@
                 <h4 class="choice_que btn" id="option4">9</h4>
             </div>
             <button id="next" class="btn"> Next </button>
-         </div>
-
+        </div>
+    <!-- Winners Section -->  
+        <div id="congrats">
+             <h2>How much random knowledge do you have?</h2>
+             <br>
+             <h4>Congrats!</h4>
+             <h4>You know alot of random stuff.</h4>
+             <button class="restart btn"> Restart </button>
+             <button class="feedback btn"> Give Feedback </button>
+        </div>   
+    <!-- loosers Section -->  
+        <div id="tryAgain">
+            <h2>How much random knowledge do you have?</h2>
+            <br>
+            <h4>Apparently not much :/</h4>
+            <h4>Feel free to try again if you think you learnt anything the first time round.</h4>
+            <button class="restart btn"> Restart </button>
+            <button class="feedback btn"> Give Feedback </button>
+        </div>  
+    <!-- Feedback Section -->    
+        <div id="form">
+            <form method="POST" action="https://formdump.codeinstitute.net/">
+                If you have any feed back or think you have a weird fact to teach us, please 
+                leave it for us to read in the box below: 
+                <br>
+                <textarea rows = "8" cols = "50" name = "message">
+                                      leave message here!
+                </textarea><br>
+                <input class="btn" id="submit" type = "submit" value = "submit" />
+            </form>
+        </div>
     </div>
     <div id="score-area">
         <p class="scores">Correct Answers <span id="score">0</span></p>
