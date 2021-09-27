@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/pstyle.css">
     <title>Weird Facts Quiz</title>
     <style>
         body {
@@ -25,7 +25,7 @@
 
     <div id="container">
     <!-- Start Section -->
-        <div id="start"> Start </div>
+        <div id="start" class="btn"> Start </div>
     <!-- Instructions Section -->
         <div id="instructions"> 
             <h2> Instructions </h2>
@@ -33,11 +33,25 @@
             <h4> 2. You only get one chance to select an answer, so once your answer
                  is selected you can't change your mind. </h4>
             <h4> 3. Points will be given based on you correct/incorrect answers. </h4>
-            <button id="continue">Continue</button>
+            <button id="continue" class="btn">Continue</button>
         </div>
     <!-- Quiz Section -->
-         <div id="quiz-section"></div>
+         <div id="quiz">
+            <h2 id="questionText"> How many brains does an octopus have? </h2>
+    <!-- Answer Choices-->
+            <div id="optionList">
+                <h4 class="choice_que btn" id="option1">1</h4>
+                <h4 class="choice_que btn" id="option2">6</h4>
+                <h4 class="choice_que btn" id="option3">8</h4>
+                <h4 class="choice_que btn" id="option4">9</h4>
+            </div>
+            <button id="next" class="btn"> Next </button>
+         </div>
 
+    </div>
+    <div id="score-area">
+        <p class="scores">Correct Answers <span id="score">0</span></p>
+        <p class="scores">Incorrect Answers <span id="incorrect">0</span></p>
     </div>
     <script src="assets/js/script.js"></script>
 </body>
