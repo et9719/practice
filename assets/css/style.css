@@ -4,6 +4,10 @@ body {
     height: 100vh;
 }
 
+.hide {
+    display: none;
+}
+
 .logo {
     position: relative;
     top: -2%;
@@ -46,14 +50,9 @@ body {
     top: 85px;
     padding: 20px 40px;
     width: 10%;
-    display: none; 
 }
 
 /* Instructions Section */
-#instructions {  
-    display: none; 
-} 
-
 #instructions h2 {
     font-size: 30px;
     border-bottom: 2px solid black; 
@@ -74,11 +73,6 @@ body {
 }
 
 /* Quiz Section */
-
-#quiz { 
-    display: none;
-}
-
 #questionText {
     font-weight:lighter;
 }
@@ -102,14 +96,9 @@ body {
     font-family: 'Special Elite',cursive;
     position: relative;
     top: 0;
-    /* display: none;  */
 }
 
 /* Winners Section */
-#congrats { 
-    display: none;
-}
-
 #congrats h2, #congrats h4{
     font-weight: lighter;
 }
@@ -129,11 +118,6 @@ body {
 }
 
 /* loosers Section */
-
-#tryAgain { 
-    display: none;
-}
-
 #tryAgain h2, #tryAgain h4{
     font-weight: lighter;
 }
