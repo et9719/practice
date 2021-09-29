@@ -18,7 +18,7 @@ body {
     box-sizing: border-box;
     border-radius: 1%;
     width: 60%;
-    height: 55vh;
+    height: 60vh;
     max-height: 350px;
     max-width: 630px;
     margin-left: auto;
@@ -26,7 +26,7 @@ body {
     padding: 1%;
     box-shadow: 0 0 10px 2px;
     position: relative;
-    top: -5%;
+    top: -15%;
 }
 
 .btn {
