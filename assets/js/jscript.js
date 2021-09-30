@@ -6,50 +6,59 @@ let nextBtn = document.getElementById('next');
 
 let questionText = document.getElementById('questionText');
 
-let choice_que = document.getElementsByClassName('choice_que');
 let choice1 = document.getElementById('option1');
 let choice2 = document.getElementById('option2');
 let choice3 = document.getElementById('option3');
 let choice4 = document.getElementById('option4');
 
-let usersAns = undefined;
+let correct = document.getElementById('score');
+let incorrect = document.getElementById('incorrect');
+
+let usersAns = '';
 let index = 0;
 
+// When start button is clicked, remove the start button and show the instructions.
 start.addEventListener('click', startQuiz);
-// when start button is clicked, remove the start button and show the instructions.
+
 function startQuiz() {
     console.log('started');
     start.classList.add('hide');
     instructions.classList.remove('hide');
 }
 
+// When continue button is clicked, show the first question.
 continueBtn.addEventListener('click', showQuestion);
-// when continue button is clicked, show the first question.
+
 function showQuestion() {
     instructions.classList.add('hide');
     quizSection.classList.remove('hide');
     loadData();
 } 
 
+/* When user clicks on an answer, show next button, change answer 
+choices to relevent colors and increment score. */
 choice1.addEventListener('click', showNextBtn)
 choice2.addEventListener('click', showNextBtn)
 choice3.addEventListener('click', showNextBtn)
 choice4.addEventListener('click', showNextBtn)
-/* when user clicks on an answer, show next button, change answer 
-choices to relevent colors and increment score. */
+
 function showNextBtn() {
     nextBtn.classList.remove('hide');
+    incrementScore();
 }
 
+// Show next question when next button is clicked.
 nextBtn.addEventListener('click', showNextQuestion);
-// show next question when next button is clicked
+
 function showNextQuestion() {
     if (index !== questions.length - 1) {
         index++;
     }
     loadData();
+    nextBtn.classList.add('hide');
 }
 
+// Take data from javaScript and push to html. 
 let loadData = ()=>{
     questionText.innerText = questions[index].question;
     choice1.innerText = questions[index].option1;
@@ -58,20 +67,40 @@ let loadData = ()=>{
     choice4.innerText = questions[index].option4;
 }
 
-/*
-choice_que.forEach( (choices, choiceNo) =>{
-    choices.addEventListener('click', ()=>{
-        choices.classList.add('active');
-        // check answer
-        if(choiceNo === questions[index].answer)
-        {
-            correct++;
-        } else {
-            correct += 0;
-        }
-    })
-});
-*/
+// Add selected class to answer user chooses.
+choice1.addEventListener('click', usersAnswer);
+choice2.addEventListener('click', usersAnswer);
+choice3.addEventListener('click', usersAnswer);
+choice4.addEventListener('click', usersAnswer);
+function usersAnswer() {
+    let answers = document.getElementsByClassName('choice_que');
+    for (let answer of answers) {
+        answer.addEventListener('click', () => {
+            answer.classList.add('selected');
+            checkAnswer();
+        })
+    }
+}
+
+// check if answer is correct.
+function checkAnswer() {
+    let selectedAnswer = document.getElementsByClassName('selected');
+    let usersAns = selectedAnswer.getAttribute('value');
+    incrementScore();
+}
+
+// Increment the incorrect and correct answers. 
+function incrementScore() {
+    if (usersAns === questions[index].answer) {
+        //  if answer is correct and 1 point to correct answers
+        let oldScore = parseInt(document.getElementById("score").innerText);
+        document.getElementById("score").innerText = oldScore + 1;
+    } else {
+        // if answer is incorrect and 1 point to incorrect answers
+        let oldScore = parseInt(document.getElementById("incorrect").innerText);
+        document.getElementById("incorrect").innerText = oldScore + 1;
+    }
+} 
 
 let questions = [ 
     {
@@ -80,7 +109,7 @@ let questions = [
         option2: '6',
         option3: '8',
         option4: '9',
-        answer: 4
+        answer: '9'
     },
     {
         question: 'In what country is it illegal to bring a bear to the beach?',
@@ -88,7 +117,7 @@ let questions = [
         option2: 'Australia',
         option3: 'China',
         option4: 'Spain',
-        answer: 1
+        answer: 'Israel'
     },
     {
         question: 'In what country is it illegal to handle salmon in suspicious circumstances?',
@@ -96,7 +125,7 @@ let questions = [
         option2: 'Canada',
         option3: 'England',
         option4: 'Sweden',
-        answer: 3
+        answer: 'England'
     },
     {
         question: 'For around 20 years a cat served as honorary mayor in which state?',
@@ -104,7 +133,7 @@ let questions = [
         option2: 'Pennsylvania',
         option3: 'Delaware',
         option4: 'Nevada',
-        answer: 1
+        answer: 'Alaska'
     },
     {
         question: 'Out of the following animals which one has no stomach?',
@@ -112,7 +141,7 @@ let questions = [
         option2: 'Crab',
         option3: 'Platypus',
         option4: 'Clawed Frog',
-        answer: 3
+        answer: 'Platypus'
     },
     {
         question: 'If you got in your car, drove at 60mph in a strait line, how long would it take you to get to space?',
@@ -120,7 +149,7 @@ let questions = [
         option2: '6 Hours',
         option3: '3 Days',
         option4: 'Two Weeks',
-        answer: 1
+        answer: '1 Hour'
     }, 
     {
         question: 'What country consumes the most mac & cheese?',
@@ -128,7 +157,7 @@ let questions = [
         option2: 'France',
         option3: 'Denmark',
         option4: 'Canada',
-        answer: 4
+        answer: 'Canada'
     },
     {
         question: 'What was the last letter added to the alphabet?',
@@ -136,7 +165,7 @@ let questions = [
         option2: 'Z',
         option3: 'J',
         option4:  'Q',
-        answer: 3
+        answer: 'J'
     },
     {
         question: 'what strange food did mcdonalds attepmt to create in 2014?',
@@ -144,7 +173,7 @@ let questions = [
         option2: 'Burger flavored milkshake',
         option3: '',
         option4: 'Bubble gum flavored broccoli',
-        answer: 4
+        answer: 'Bubble gum flavored broccoli'
     },
     {
         question: '?',
