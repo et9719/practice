@@ -35,16 +35,9 @@ function showQuestion() {
     loadData();
 } 
 
-/* When user clicks on an answer, show next button, change answer 
-choices to relevent colors and increment score. */
-choice1.addEventListener('click', showNextBtn)
-choice2.addEventListener('click', showNextBtn)
-choice3.addEventListener('click', showNextBtn)
-choice4.addEventListener('click', showNextBtn)
-
+// When user clicks on an answer, show next button
 function showNextBtn() {
     nextBtn.classList.remove('hide');
-    incrementScore();
 }
 
 // Show next question when next button is clicked.
@@ -73,24 +66,24 @@ choice2.addEventListener('click', usersAnswer);
 choice3.addEventListener('click', usersAnswer);
 choice4.addEventListener('click', usersAnswer);
 function usersAnswer() {
-    let answers = document.getElementsByClassName('choice_que');
-    for (let answer of answers) {
-        answer.addEventListener('click', () => {
-            answer.classList.add('selected');
-            checkAnswer();
-        })
-    }
+    
+            this.classList.add('selected');
+            console.log(this);
+            checkAnswer(this);
+            showNextBtn();
 }
 
 // check if answer is correct.
-function checkAnswer() {
-    let selectedAnswer = document.getElementsByClassName('selected');
-    let usersAns = selectedAnswer.getAttribute('value');
-    incrementScore();
+function checkAnswer(selectedAnswer) {
+    // let selectedAnswer = document.getElementsByClassName('selected')[0];
+    const usersAns = selectedAnswer.innerText;
+    incrementScore(usersAns);
 }
 
 // Increment the incorrect and correct answers. 
-function incrementScore() {
+function incrementScore(usersAns) {
+    console.log('userAns', usersAns);
+    console.log('questions.answer',questions[index].answer);
     if (usersAns === questions[index].answer) {
         //  if answer is correct and 1 point to correct answers
         let oldScore = parseInt(document.getElementById("score").innerText);
