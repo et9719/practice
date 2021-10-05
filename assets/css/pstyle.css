@@ -14,7 +14,7 @@ body {
 }
 
 #container {
-    background-image: url("../images/paper.jpg");  
+    background-image: url("../images/paper.jpg");   
     box-sizing: border-box;
     border-radius: 1%;
     width: 60%;
@@ -84,12 +84,20 @@ body {
 }
 
 .choice_que {
-    background-color: white;
     padding: 20px 80px;
     margin: 5px 20px;
 }
 
-#next {
+ /* if answer selected is correct  */
+.buttonCorrect {
+    background-color: green;
+}
+ /* if answer selected is incorrect  */
+.buttonWrong {
+    background-color: red;
+} 
+
+#next, #end {
     font-size: 1.5rem;
     top: 85px;
     padding: 20px 40px;

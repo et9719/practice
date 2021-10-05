@@ -3,6 +3,7 @@ let instructions = document.getElementById('instructions');
 let continueBtn = document.getElementById('continue');
 let quizSection = document.getElementById('quiz');
 let nextBtn = document.getElementById('next');
+let endBtn = document.getElementById('end');
 
 let questionText = document.getElementById('questionText');
 
@@ -14,14 +15,13 @@ let choice4 = document.getElementById('option4');
 let correct = document.getElementById('score');
 let incorrect = document.getElementById('incorrect');
 
-let usersAns = '';
 let index = 0;
 
 // When start button is clicked, remove the start button and show the instructions.
 start.addEventListener('click', startQuiz);
 
 function startQuiz() {
-    console.log('started');
+    console.log('start');
     start.classList.add('hide');
     instructions.classList.remove('hide');
 }
@@ -37,18 +37,22 @@ function showQuestion() {
 
 // When user clicks on an answer, show next button
 function showNextBtn() {
-    nextBtn.classList.remove('hide');
+    if (index !== questions.length - 1 ) {
+        nextBtn.classList.remove('hide');
+    } else {
+        endBtn.classList.remove('hide');
+    }
 }
 
 // Show next question when next button is clicked.
 nextBtn.addEventListener('click', showNextQuestion);
 
 function showNextQuestion() {
-    if (index !== questions.length - 1) {
+    if (index !== questions.length - 1 ) {
         index++;
-    }
-    loadData();
-    nextBtn.classList.add('hide');
+        loadData();
+        nextBtn.classList.add('hide');
+    } 
 }
 
 // Take data from javaScript and push to html. 
@@ -75,15 +79,14 @@ function usersAnswer() {
 
 // check if answer is correct.
 function checkAnswer(selectedAnswer) {
-    // let selectedAnswer = document.getElementsByClassName('selected')[0];
     const usersAns = selectedAnswer.innerText;
     incrementScore(usersAns);
 }
 
 // Increment the incorrect and correct answers. 
 function incrementScore(usersAns) {
-    console.log('userAns', usersAns);
-    console.log('questions.answer',questions[index].answer);
+    // console.log('userAns', usersAns);
+    // console.log('questions.answer',questions[index].answer);
     if (usersAns === questions[index].answer) {
         //  if answer is correct and 1 point to correct answers
         let oldScore = parseInt(document.getElementById("score").innerText);
