@@ -12,8 +12,8 @@ let choice2 = document.getElementById('option2');
 let choice3 = document.getElementById('option3');
 let choice4 = document.getElementById('option4');
 
-let correct = document.getElementById('score');
-let incorrect = document.getElementById('incorrect');
+// let correct = document.getElementById('score');
+// let incorrect = document.getElementById('incorrect');
 
 let index = 0;
 
@@ -97,6 +97,19 @@ function incrementScore(usersAns) {
         document.getElementById("incorrect").innerText = oldScore + 1;
     }
 } 
+
+// when end button is clicked show congats if user get 5 or more correct and tryAgain if less than 5.
+endBtn.addEventListener('click', results);
+function results() {
+    if (document.getElementById("score").innerText >= 5) {
+        quizSection.classList.add('hide');
+        congrats.classList.remove('hide');
+    } else {
+        quizSection.classList.add('hide');
+        tryAgain.classList.remove('hide');
+    }
+}
+
 
 let questions = [ 
     {
